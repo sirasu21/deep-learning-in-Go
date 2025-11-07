@@ -1,0 +1,22 @@
+package ch02
+
+import "testing"
+
+func TestNandGate(t *testing.T) {
+
+	tests := []struct{
+		x1, x2 float64
+		want int
+	}{
+		{ 0, 0, 1},
+		{ 0, 1, 1},
+		{ 1, 0, 1},
+		{ 1, 1, 0},
+	}
+	for _, test := range tests{
+		got := NandGate(test.x1, test.x2)
+		if got != test.want{
+			t.Errorf("NandGate(%f, %f) == %d, want %d", test.x1, test.x2, got, test.want)
+		}
+	}
+}
